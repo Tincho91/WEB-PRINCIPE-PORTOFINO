@@ -9,6 +9,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import Slider from "react-slick";
+import FadeInFromLeft from "./animations/fadeInFromLeft";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -71,92 +72,87 @@ const Relax = () => {
       justifyContent="center"
       py="3em"
     >
-      <Heading 
-        as="h1" 
-        textAlign="center" 
-        pb="1em" 
-        color="#43150A" 
+      <Heading
+        as="h1"
+        textAlign="center"
+        pb="1em"
+        color="#43150A"
         fontSize={["3xl", "4xl", "5xl"]}
       >
         Relajate y sentí el
         <Box as="span" position="relative" display="inline-block" ml={5}>
-          <Text
-            as="span"
-            fontFamily="Style Script, cursive"
-            zIndex="2"
-            position="relative"
-            color="#BB8D6A"
-            fontSize={["5xl", "6xl", "7xl"]}
-            fontWeight='400'
-          >
-            mar
-          </Text>
-          <Box
-            as="span"
-            position="absolute"
-            bottom="25%"
-            left="50%"
-            transform="translateX(-50%)"
-            width="130%"
-            height="25%"
-            bg="white"
-            zIndex="1"
-          ></Box>
+          <FadeInFromLeft id="mar">
+            <Text
+              as="span"
+              fontFamily="Style Script, cursive"
+              zIndex="2"
+              position="relative"
+              color="#BB8D6A"
+              fontSize={["5xl", "6xl", "7xl"]}
+              fontWeight="400"
+            >
+              mar
+            </Text>
+            <Box
+              as="span"
+              position="absolute"
+              bottom="25%"
+              left="50%"
+              transform="translateX(-50%)"
+              width="130%"
+              height="25%"
+              bg="white"
+              zIndex="1"
+            ></Box>
+          </FadeInFromLeft>
         </Box>
       </Heading>
 
-      <Box  
-        maxW="1200px"
-        width="90%"
-        mx="auto"
-        height="100%"
-      >
-
-      <Grid
-        templateColumns={{ base: "100%", md: "70% 30%" }}
-        gap={4}
-        position="relative"
-        alignItems="center"
-      >
-        <Box rounded="xl">
-          <Slider ref={slider1} {...settings1}>
-            {imageNames.map((name) => (
-              <Image
-                key={name}
-                src={`/images/${name}`}
-                alt={name}
-                rounded="xl"
-              />
-            ))}
-          </Slider>
-        </Box>
-        <Box
-          display={{ base: "none", md: "flex" }}
-          flexDirection="column"
-          justifyContent="flex-end"
-          height="100%"
-          rounded="xl"
+      <Box maxW="1200px" width="90%" mx="auto" height="100%">
+        <Grid
+          templateColumns={{ base: "100%", md: "70% 30%" }}
+          gap={4}
           position="relative"
+          alignItems="center"
         >
-          <DesktopArrows
-            handleNext={handleNext}
-            handlePrev={handlePrev}
-            version={arrowVersion}
-          />
+          <Box rounded="xl">
+            <Slider ref={slider1} {...settings1}>
+              {imageNames.map((name) => (
+                <Image
+                  key={name}
+                  src={`/images/${name}`}
+                  alt={name}
+                  rounded="xl"
+                />
+              ))}
+            </Slider>
+          </Box>
+          <Box
+            display={{ base: "none", md: "flex" }}
+            flexDirection="column"
+            justifyContent="flex-end"
+            height="100%"
+            rounded="xl"
+            position="relative"
+          >
+            <DesktopArrows
+              handleNext={handleNext}
+              handlePrev={handlePrev}
+              version={arrowVersion}
+            />
 
-          <Slider ref={slider2} {...settings2}>
-            {imageNames.map((name) => (
-              <Image
-                key={name}
-                src={`/images/${name}`}
-                alt={name}
-                rounded="xl"
-              />
-            ))}
-          </Slider>
-        </Box>
-      </Grid>
-
+            <Slider ref={slider2} {...settings2}>
+              {imageNames.map((name) => (
+                <Image
+                  key={name}
+                  src={`/images/${name}`}
+                  alt={name}
+                  rounded="xl"
+                />
+              ))}
+            </Slider>
+          </Box>
+        </Grid>
       </Box>
 
       <MobileArrows
@@ -177,7 +173,7 @@ function NextArrow({ onClick }) {
       display="flex"
       flexDirection="column"
       alignItems="center"
-      justifyContent="center" 
+      justifyContent="center"
       ml="1em"
       p={2}
       rounded="full"
@@ -197,7 +193,7 @@ function PrevArrow({ onClick }) {
       display="flex"
       flexDirection="column"
       alignItems="center"
-      justifyContent="center" 
+      justifyContent="center"
       mr="1em"
       p={2}
       rounded="full"
