@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800;900&display=swap');
+
+
+body {
+    overflow-x: hidden;
+}
+
+.custom-dot {
+    width: 8px;
+    height: 8px;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.custom-dot.active {
+    background-color: white;
+    border-color: white;
+}
+
+.slick-dots {
+    bottom: 5%;
+    z-index: 10;
+}
+
+.slick-dots.custom-dots-1 {
+    bottom: 5%;
+    left: 0%;
+    right: 0%;
+    width: auto;
+}
+
+.slick-dots.custom-dots-2 { 
+    bottom: 5%;
+    left: 5%;
+    width: auto;
+}
+
+.slide {
+    transition: transform 7s ease-in-out;
+}
+
+.active-slide {
+    transform: scale(1.05);
+}
+
+.datePicker {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: 1px solid gray;
+    border-radius: 50px;
+    background-color: transparent;
+    color: gray;
+}
+
+.dateWrapper {
+    width: 48%;
+}
+
+.datePicker:focus {
+    outline: none;
+    border-color: #43150A;
+}
